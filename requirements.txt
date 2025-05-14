@@ -1,3 +1,10 @@
-pytest
-requests
-PyYAML
+Faker ==37.1.0
+gherkin-official ==  29.0.0
+openpyxl     ==      3.1.5
+pandas     ==        2.2.3
+pytest       ==      8.3.5
+pytest-bdd    ==     8.1.0
+PyYAML         ==    6.0.2
+requests     ==      2.32.3
+selenium     ==      4.32.0
+webdriver-manager ==  4.0.2
