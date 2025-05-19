@@ -1,0 +1,30 @@
+2025-05-19 15:23:00,761 : INFO : response_validate : Starting response validation.
+2025-05-19 15:23:00,761 : DEBUG : response_validate : Response data: {'description': 'latest apple iphone', 'price': 919984.0, 'id': 38, 'name': 'Iphone-e181'}
+2025-05-19 15:23:00,761 : DEBUG : response_validate : Payload data: {'name': 'Iphone-e181', 'description': 'latest apple iphone', 'price': 919984}
+2025-05-19 15:23:00,761 : DEBUG : response_validate : Validation parameters - parent_key: None, message: None, user: None
+2025-05-19 15:23:00,761 : INFO : response_validate : product fetched successfully
+2025-05-19 15:23:01,594 : INFO : response_validate : Starting response validation.
+2025-05-19 15:23:01,594 : DEBUG : response_validate : Response data: {'message': 'Product updated successfully', 'product': {'id': 40, 'name': 'Iphone-f906', 'description': 'latest apple iphone', 'price': 591249.0}}
+2025-05-19 15:23:01,594 : DEBUG : response_validate : Payload data: {'id': 40, 'name': 'Iphone-f906', 'description': 'latest apple iphone', 'price': 591249}
+2025-05-19 15:23:01,594 : DEBUG : response_validate : Validation parameters - parent_key: product, message: Product updated successfully, user: None
+2025-05-19 15:23:01,594 : INFO : response_validate : Product updated successfully
+2025-05-19 15:23:02,150 : INFO : response_validate : Starting response validation.
+2025-05-19 15:23:02,150 : DEBUG : response_validate : Response data: {'message': 'Login successful'}
+2025-05-19 15:23:02,150 : DEBUG : response_validate : Payload data: None
+2025-05-19 15:23:02,150 : DEBUG : response_validate : Validation parameters - parent_key: None, message: Login successful, user: None
+2025-05-19 15:23:02,150 : INFO : response_validate : Login successful
+2025-05-19 15:23:02,438 : INFO : response_validate : Starting response validation.
+2025-05-19 15:23:02,438 : DEBUG : response_validate : Response data: {'message': 'Login successful'}
+2025-05-19 15:23:02,438 : DEBUG : response_validate : Payload data: None
+2025-05-19 15:23:02,438 : DEBUG : response_validate : Validation parameters - parent_key: None, message: Login successful, user: None
+2025-05-19 15:23:02,438 : INFO : response_validate : Login successful
+2025-05-19 15:23:02,709 : INFO : response_validate : Starting response validation.
+2025-05-19 15:23:02,709 : DEBUG : response_validate : Response data: {'message': 'Login successful'}
+2025-05-19 15:23:02,709 : DEBUG : response_validate : Payload data: None
+2025-05-19 15:23:02,709 : DEBUG : response_validate : Validation parameters - parent_key: None, message: Login successful, user: None
+2025-05-19 15:23:02,709 : INFO : response_validate : Login successful
+2025-05-19 15:23:02,992 : INFO : response_validate : Starting response validation.
+2025-05-19 15:23:02,992 : DEBUG : response_validate : Response data: {'message': 'Login successful'}
+2025-05-19 15:23:02,992 : DEBUG : response_validate : Payload data: None
+2025-05-19 15:23:02,992 : DEBUG : response_validate : Validation parameters - parent_key: None, message: Login successful, user: None
+2025-05-19 15:23:02,992 : INFO : response_validate : Login successful

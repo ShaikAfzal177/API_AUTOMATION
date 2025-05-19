@@ -1,7 +1,7 @@
 
 from pytest_bdd import scenarios, given, when, parsers, then
 
-from source.login_page import LoginPage
+from source.login_page_sauce import LoginPage
 
 scenarios("../features/saucedemo.feature")
 

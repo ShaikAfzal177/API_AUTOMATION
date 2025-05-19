@@ -8,3 +8,4 @@ PyYAML         ==    6.0.2
 requests     ==      2.32.3
 selenium     ==      4.32.0
 webdriver-manager ==  4.0.2
+pytest-html      ==  4.1.1
