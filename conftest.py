@@ -1,3 +1,4 @@
+import csv
 import json
 from email.policy import default
 
@@ -92,4 +93,6 @@ def registered_user_xl(request):
 def registered_user(request):
     return request.param
 
-
+@pytest.fixture(params=[row for row in csv.DictReader(open("data/register_user.csv"))])
+def registered_user_csv(request):
+    return request.param

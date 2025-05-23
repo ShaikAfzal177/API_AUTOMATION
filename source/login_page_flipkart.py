@@ -1,4 +1,6 @@
 import time
+from fileinput import close
+
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
@@ -6,9 +8,11 @@ from config import config
 from response.response_file import ResponseFile
 from source.base_page import BasePage
 
+logger = BasePage.get_logger()
 
 class FlipkartPage(BasePage):
     search_box=(By.XPATH, "//input[@class='Pke_EE']")
+    login_popup=(By.CSS_SELECTOR, "._30XB9F")
     products_locator=(By.CSS_SELECTOR, ".KzDlHZ")
     product_name_locator=(By.CSS_SELECTOR, ".VU-ZEz")
     price_locator=(By.CSS_SELECTOR, ".Nx9bqj.CxhGGd")
@@ -23,6 +27,16 @@ class FlipkartPage(BasePage):
         time.sleep(5)
 
     def search_product(self, product_name):
+
+        try:
+            close_button=self.wait_for_element(self.login_popup)
+            # Click the close button
+            close_button.click()
+
+            logger.info("Login popup closed successfully.")
+
+        except Exception as e:
+            logger.info("Popup not found or already closed. Skipping...")
         self.wait_for_element(self.search_box)
         search=self.driver.find_element(*self.search_box)
         search.send_keys(product_name)

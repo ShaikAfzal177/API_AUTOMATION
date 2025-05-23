@@ -1,15 +1,16 @@
 import pytest
-import config
+from config import config
 from data.payload_generator import PayloadGenerator
 from data.registered_data import RegisteredData
 from response.response_file import ResponseFile
 
 # USER_FILE = "data/registered_users.json"
 # USER_FILE_1="data/register_user.xlsx"
-config = config.config.load_config("config/config.yaml")
+config =config.load_config("config/config.yaml")
 JSON_FILE = config["JSON_FILE"]
 EXCEL_FILE_1 = config["EXCEL_FILE_1"]
 YAML_FILE=config["YAML_FILE"]
+CSV_FILE=config["CSV_FILE"]
 
 
 @pytest.mark.usefixtures("product_api","register_api")
@@ -68,9 +69,9 @@ class TestProductCrud:
         response=register_api.register_user(payload)
         assert response.json()["detail"] == "Missing password"
 
-    @pytest.mark.smoke
-    def test_login_user(self,register_api, registered_user):
-        response=register_api.login(payload=registered_user)
+    @pytest.mark.smokers
+    def test_login_user(self,register_api, registered_user_csv):
+        response=register_api.login(payload=registered_user_csv)
         data=response.json()
         ResponseFile.response_validate(data, message="Login successful")
 

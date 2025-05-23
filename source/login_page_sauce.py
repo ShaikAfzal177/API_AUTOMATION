@@ -39,7 +39,7 @@ class LoginPage(BasePage):
         self.driver.find_element(*self.USERNAME_FIELD).send_keys(username)
         self.driver.find_element(*self.PASSWORD_FIELD).send_keys(password)
         self.driver.find_element(*self.LOGIN_BUTTON).click()
-        return self.wait_for_element(self.APP_LOGO)
+        self.wait_for_element(self.APP_LOGO)
         # wait=WebDriverWait(self.driver,10)
         # wait.until(expected_conditions.presence_of_element_located((By.XPATH, "//div[@class='app_logo']")))
         # assert

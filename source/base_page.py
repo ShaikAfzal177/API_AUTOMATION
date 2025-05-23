@@ -2,10 +2,7 @@
 import inspect
 import logging
 import os
-import random
-import threading
-import uuid
-from uuid import uuid4
+from datetime import datetime
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -35,7 +32,7 @@ class BasePage:
 
         # Detect if we're running in parallel (pytest-xdist)
         worker_id = os.environ.get('PYTEST_XDIST_WORKER')
-
+        # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         if worker_id:
             # Parallel execution: unique log file per worker
             log_file = os.path.join("logs", f"{logger_name}_{worker_id}.log")

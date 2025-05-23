@@ -1,8 +1,6 @@
 
 from pytest_bdd import scenarios, given, when, parsers, then
 
-from source.login_page_sauce import LoginPage
-
 scenarios("../features/saucedemo.feature")
 
 
@@ -12,7 +10,7 @@ def open_login(login_page):
 
 @when(parsers.parse('the user logs in with "{username}" and "{password}"'))
 def user_login(login_page, username, password):
-    assert login_page.login_user(username,password)
+    login_page.login_user(username,password)
 
 @given("the user land on the products page")
 @then("the user land on the products page")
