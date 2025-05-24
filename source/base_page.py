@@ -6,6 +6,7 @@ from datetime import datetime
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+log_handler=False
 
 class BasePage:
     def __init__(self, driver):
@@ -18,7 +19,7 @@ class BasePage:
 
     @staticmethod
     def get_logger():
-
+        global log_handler
         # Get the caller function name (used as logger name)
         logger_name = inspect.stack()[1][3]
         logger = logging.getLogger(logger_name)
@@ -41,8 +42,12 @@ class BasePage:
             log_file = os.path.join("logs", "logfile.log")
 
         # Set up file handler
-        file_handler = logging.FileHandler(log_file, mode='w')  # Append mode for normal run
-        formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s : %(message)s")
+        if not log_handler:
+            file_handler = logging.FileHandler(log_file, mode='w')
+            log_handler=True
+        else:
+            file_handler = logging.FileHandler(log_file, mode='a')
+        formatter = logging.Formatter("%(asctime)s :%(levelname)s :%(filename)s: %(funcName)s : %(message)s")
         file_handler.setFormatter(formatter)
 
         logger.addHandler(file_handler)

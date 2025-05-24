@@ -22,3 +22,6 @@ class RegisteredData:
         elif user_file.endswith(".yaml") or user_file.endswith(".yml"):
             SaveData.save_yaml(user_file, payload)
 
+        elif user_file.endswith(".csv"):
+            SaveData.save_csv(user_file, payload)
+

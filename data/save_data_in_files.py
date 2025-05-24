@@ -1,6 +1,6 @@
 import json
 import os.path
-
+import csv
 import yaml
 from openpyxl import load_workbook, Workbook
 
@@ -39,3 +39,11 @@ class SaveData:
         with open(user_file, "w") as f:
             yaml.safe_dump(users,f)
 
+    @staticmethod
+    def save_csv(user_file=None, payload=None):
+        file_exists = os.path.exists(user_file)
+        with open(user_file, mode='a', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=payload.keys())
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(payload)

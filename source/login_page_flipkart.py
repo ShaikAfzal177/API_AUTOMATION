@@ -8,7 +8,7 @@ from config import config
 from response.response_file import ResponseFile
 from source.base_page import BasePage
 
-logger = BasePage.get_logger()
+
 
 class FlipkartPage(BasePage):
     search_box=(By.XPATH, "//input[@class='Pke_EE']")
@@ -21,6 +21,7 @@ class FlipkartPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver=driver
+        self.logger = BasePage.get_logger()
         self.config=config.load_config("config/config.yaml")
     def load_flipkart(self):
         self.driver.get(self.config["flipkart_url"])
@@ -33,10 +34,10 @@ class FlipkartPage(BasePage):
             # Click the close button
             close_button.click()
 
-            logger.info("Login popup closed successfully.")
+            self.logger.info("Login popup closed successfully.")
 
         except Exception as e:
-            logger.info("Popup not found or already closed. Skipping...")
+            self.logger.info("Popup not found or already closed. Skipping...")
         self.wait_for_element(self.search_box)
         search=self.driver.find_element(*self.search_box)
         search.send_keys(product_name)
@@ -51,7 +52,7 @@ class FlipkartPage(BasePage):
                 product.click()
                 break
             i+=1
-        time.sleep(5)
+        # time.sleep(5)
     def get_product_details(self):
         window_handle=self.driver.window_handles
         self.driver.switch_to.window(window_handle[1])
